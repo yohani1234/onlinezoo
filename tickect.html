@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Haven Online Zoo Membership Plans</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Background Animation */
+        @keyframes slideBackground {
+            0% { background-image: url('./image/African Wild Dog.jpg'); }
+            25% { background-image: url('./image/Arctic-Wolf-2291-Edit.jpg'); }
+            50% { background-image: url('./image/bird-8022869_640.jpg'); }
+            75% { background-image: url('./image/Caracal.jpg'); }
+            100% { background-image: url('./image/Jaguar Spotted.webp'); }
+        }
+
+        body {
+            animation: slideBackground 20s infinite ease-in-out;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #0f172a; /* Dark fallback color */
+            color: #f8fafc; /* Light text for contrast */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        /* Header Navigation Links */
+        .nav-link {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #facc15; /* Yellow */
+            text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+        }
+
+        /* Section Styling */
+        .welcome-section {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        .membership-section {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+        }
+
+        .ticket-summary-section {
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+        }
+
+        /* Button Hover Effects */
+        button {
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            background: linear-gradient(90deg, #facc15, #f97316);
+            color: #000;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 165, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-8">
+        <div class="container mx-auto">
+            <!-- Navigation Bar -->
+            <nav class="flex justify-between items-center mb-6">
+                <div class="text-2xl font-bold">Wildlife Haven Zoo</div>
+                <ul class="flex space-x-6">
+                    <li><a href="home.html" class="nav-link text-lg">Home</a></li>
+                    <!-- <li><a href="about.html" class="nav-link text-lg">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link text-lg">Contact</a></li> -->
+                </ul>
+                <button onclick="window.location.href='home.html'" class="bg-yellow-500 text-black px-4 py-2 rounded-lg font-bold hover:bg-yellow-600">Back to Homepage</button>
+            </nav>
+
+            <!-- Header Content -->
+            <div class="text-center">
+                <h1 class="text-5xl font-extrabold">Wildlife Haven Online Zoo</h1>
+                <p class="text-lg mt-2 font-medium">Explore the wonders of wildlife from the comfort of your home!</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Section -->
+    <main class="container mx-auto mt-10">
+        <section class="welcome-section bg-opacity-90 p-8 rounded-lg shadow-md hover:shadow-xl">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-4">Welcome to the Wildlife Haven Online Zoo</h2>
+            <p class="text-gray-300 leading-relaxed">
+                Experience the beauty of wildlife conservation and virtual animal exhibits. With a membership, you can enjoy unlimited access to live animal streams, exclusive content, and support global conservation projects. Join the Wildlife Haven Online Zoo today and immerse yourself in a world of adventure and learning!
+            </p>
+        </section>
+
+        <!-- Membership Options -->
+        <section class="membership-section mt-10 p-8 rounded-lg shadow-md">
+            <h3 class="text-2xl font-bold text-yellow-400 mb-6">Membership Options</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="membership-card p-6 rounded-lg shadow-md cursor-pointer" onclick="selectPlan('Individual Plan', '$50/year', 'Unlimited access for one person.')">
+                    <h4 class="text-xl font-bold text-yellow-400">Individual Plan</h4>
+                    <p class="text-gray-300 mt-2">Unlimited access for just $50/year.</p>
+                </div>
+                <div class="membership-card p-6 rounded-lg shadow-md cursor-pointer" onclick="selectPlan('Family Plan', '$120/year', 'Unlimited access for up to 5 family members.')">
+                    <h4 class="text-xl font-bold text-yellow-400">Family Plan</h4>
+                    <p class="text-gray-300 mt-2">Unlimited access for up to 5 members for $120/year.</p>
+                </div>
+                <div class="membership-card p-6 rounded-lg shadow-md cursor-pointer" onclick="selectPlan('Supporter Plan', '$250/year', 'Support conservation efforts with exclusive perks.')">
+                    <h4 class="text-xl font-bold text-yellow-400">Supporter Plan</h4>
+                    <p class="text-gray-300 mt-2">Support conservation efforts with exclusive perks for $250/year.</p>
+                </div>
+                <div class="membership-card p-6 rounded-lg shadow-md cursor-pointer" onclick="selectPlan('Monthly Plan', '$10/month', 'Affordable monthly access to all features.')">
+                    <h4 class="text-xl font-bold text-yellow-400">Monthly Plan</h4>
+                    <p class="text-gray-300 mt-2">Affordable access for just $10/month.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ticket Summary Section -->
+        <section id="ticketSummary" class="ticket-summary-section mt-10 p-8 rounded-lg shadow-md hidden">
+            <h3 class="text-2xl font-bold text-yellow-400 mb-4">Selected Membership Plan</h3>
+            <p id="planName" class="text-lg font-bold text-gray-300"></p>
+            <p id="planPrice" class="text-lg text-gray-300 mt-2"></p>
+            <p id="planBenefits" class="text-gray-300 mt-2"></p>
+            <button class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2 rounded-lg font-bold mt-4">Proceed to Payment</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-6 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Wildlife Haven Online Zoo. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="social-icon text-gray-400 hover:text-yellow-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon text-gray-400 hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon text-gray-400 hover:text-yellow-400"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ticket Form -->
+    <section id="ticketForm" class="mt-10 bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-md hidden">
+        <h3 class="text-2xl font-bold text-yellow-400 mb-4">Complete Your Purchase</h3>
+        <form action="ticket.php" method="POST">
+            <input type="hidden" id="planNameInput" name="plan_name">
+            <input type="hidden" id="planPriceInput" name="plan_price">
+            
+            <!-- Email Address -->
+            <div class="mb-4">
+                <label for="user_email" class="block text-gray-300 font-bold">Email Address</label>
+                <input type="email" id="user_email" name="user_email" class="w-full p-2 rounded-lg bg-gray-700 text-white" required>
+            </div>
+            
+            <!-- Voucher Code -->
+            <div class="mb-4">
+                <label for="voucher_code" class="block text-gray-300 font-bold">Voucher Code (Optional)</label>
+                <input type="text" id="voucher_code" name="voucher_code" class="w-full p-2 rounded-lg bg-gray-700 text-white" placeholder="Enter voucher code if you have one">
+            </div>
+            
+            <!-- Payment Options -->
+            <div class="mb-4">
+                <label for="payment_method" class="block text-gray-300 font-bold">Payment Method</label>
+                <select id="payment_method" name="payment_method" class="w-full p-2 rounded-lg bg-gray-700 text-white">
+                    <option value="" disabled selected>Select a payment method</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="net_banking">Net Banking</option>
+                </select>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-6 py-2 rounded-lg font-bold mt-4">
+                Submit
+            </button>
+        </form>
+    </section>
+
+    <script>
+        function selectPlan(planName, planPrice, planBenefits) {
+            document.getElementById('ticketForm').classList.remove('hidden');
+            document.getElementById('planNameInput').value = planName;
+            document.getElementById('planPriceInput').value = planPrice;
+        }
+    </script>
+</body>
+</html>
+<!-- <script>
+    // Check session state
+    fetch('session_check.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.logged_in) {
+                // Hide login, signup, and skip buttons
+                const signupButton = document.querySelector("button[onclick*='signup.html']");
+                const loginButton = document.querySelector("button[onclick*='login.html']");
+                const skipButton = document.querySelector("button[onclick*='hideEntryScreen()']");
+                if (signupButton) signupButton.style.display = 'none';
+                if (loginButton) loginButton.style.display = 'none';
+                if (skipButton) skipButton.style.display = 'none';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+</script> -->

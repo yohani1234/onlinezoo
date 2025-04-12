@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Wildlife Haven Zoo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: url('./image/contact-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #0f172a; /* Fallback color */
+            color: #f8fafc; /* Light text for contrast */
+        }
+
+        .form-container {
+            background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        button {
+            background: linear-gradient(90deg, #facc15, #f97316);
+            color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 25px rgba(255, 165, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-8">
+        <div class="container mx-auto">
+            <nav class="flex justify-between items-center">
+                <div class="text-2xl font-bold">Wildlife Haven Zoo</div>
+                <ul class="flex space-x-6">
+                    <li><a href="home.html" class="nav-link text-lg">Home</a></li>
+                    <li><a href="tickect.html" class="nav-link text-lg">Tickets</a></li>
+                    <li><a href="about.html" class="nav-link text-lg">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Form Section -->
+    <main class="container mx-auto mt-10 flex justify-center">
+        <div class="form-container w-full max-w-lg">
+            <h2 class="text-3xl font-bold text-yellow-400 mb-6 text-center">Contact Us</h2>
+            <form action="contact.php" method="POST">
+                <!-- Name -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-300 font-bold">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 rounded-lg bg-gray-700 text-white" placeholder="Enter your name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-300 font-bold">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 rounded-lg bg-gray-700 text-white" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Subject -->
+                <div class="mb-4">
+                    <label for="subject" class="block text-gray-300 font-bold">Subject</label>
+                    <input type="text" id="subject" name="subject" class="w-full p-2 rounded-lg bg-gray-700 text-white" placeholder="Enter the subject" required>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-300 font-bold">Message</label>
+                    <textarea id="message" name="message" rows="5" class="w-full p-2 rounded-lg bg-gray-700 text-white" placeholder="Write your message here..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full py-2 rounded-lg font-bold mt-4">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-6 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Wildlife Haven Zoo. All rights reserved. 🐾</p>
+        </div>
+    </footer>
+</body>
+</html>
